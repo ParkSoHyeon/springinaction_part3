@@ -5,9 +5,14 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
+import org.springframework.cache.jcache.JCacheCacheManager;
+import org.springframework.cache.support.CompositeCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @EnableCaching
@@ -33,5 +38,18 @@ public class CachingConfig {
         return ehCacheManagerFactoryBean;
     }
 
-    //
+    //다중 캐시 매니저 선언
+    @Bean
+    public CacheManager cacheManager(net.sf.ehcache.CacheManager cm,
+                                     javax.cache.CacheManager jcm) {
+        CompositeCacheManager cacheManager = new CompositeCacheManager();
+        List<CacheManager> managers = new ArrayList<CacheManager>();
+
+        managers.add(new JCacheCacheManager(jcm));
+        managers.add(new EhCacheCacheManager(cm));
+
+        cacheManager.setCacheManagers(managers);
+
+        return cacheManager;
+    }
 }
