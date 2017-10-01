@@ -1,0 +1,18 @@
+<persistence
+        xmlns="http://java.sun.com/xml/ns/persistence"
+        version="1.0">
+    <!--애플리케이션 관리형 - 삭제 필요-->
+    <!--<jee:jndi-lookup id="" jndi-name="persistence/spitterPU"-/> => EntityManagerFactory에 대한 레퍼런스를 가짐->
+    <persistence-unit name="spitterPU">
+        <class>spittr.domain.Spitter</class>
+        <class>spittr.domain.Spittle</class>
+        <properties>
+            <property name="toplink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="toplink.jdbc.url" value="jdbc://hsqldb:hsql://localhost/spitter/spitter"/>
+            <property name="tolink.jdbc.user" value="sa"/>
+            <property name="toplink.jdbc.password" value=""/>
+        </properties>
+    </persistence-unit>
+
+
+</persistence>
