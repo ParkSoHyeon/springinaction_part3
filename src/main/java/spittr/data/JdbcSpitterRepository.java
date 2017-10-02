@@ -1,6 +1,7 @@
 package spittr.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -72,7 +73,7 @@ public class JdbcSpitterRepository implements SpitterRepository {
                 spitter.isUpdateByEmail());
     }
 
-    @Cacheable("spitterCache")
+    @Cacheable(value = "spitterCache", unless = "#result.email.contains('NoCache')", condition = "#id >= 10")
     public Spitter findOne(long id) {
         try {
             return jdbcTemplate.queryForObject(
@@ -89,6 +90,12 @@ public class JdbcSpitterRepository implements SpitterRepository {
 
     public List<Spitter> findAll() {
         return jdbcTemplate.query("select id, username, password, fullname, email, updateByEmail from Spitter order by id", new SpitterRowMapper());
+    }
+
+    @CacheEvict("spitterCache")
+    @Override
+    public void remove(long spitterId) {
+
     }
 
     private static final class SpitterRowMapper implements RowMapper<Spitter> {
