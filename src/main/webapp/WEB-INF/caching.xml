@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:config>
+        <aop:advisor advice-ref="cacheAdvice"
+                     pointcut="execution(* spittr.data.SpitterRepository.*(..))"/>
+    </aop:config>
+
+    <cache:advice id="cacheAdvice">
+        <cache:caching>
+            <cache:cacheable cache="spitterCache"
+                             method="findRecent"/>
+
+            <cache:cacheable cache="spitterCache"
+                             method="findOne"/>
+
+            <cache:cache-put cache="spitterCache"
+                             method="save"
+                             key="#result.id"/>
+
+            <cache:cache-evict cache="spitterCache"
+                               method="remove"/>
+        </cache:caching>
+    </cache:advice>
 
     <!--캐싱 활성화-->
     <cache:annotation-driven/>
