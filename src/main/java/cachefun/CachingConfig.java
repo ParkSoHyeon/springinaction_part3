@@ -25,7 +25,7 @@ public class CachingConfig {
 
     //EhCache 캐싱
     @Bean
-    public EhCacheCacheManager cacheManager(net.sf.ehcache.CacheManager cacheManager) {
+    public EhCacheCacheManager ehCacheManager(net.sf.ehcache.CacheManager cacheManager) {
         return new EhCacheCacheManager(cacheManager);
     }
 
