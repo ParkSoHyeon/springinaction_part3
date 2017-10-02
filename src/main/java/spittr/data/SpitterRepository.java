@@ -14,4 +14,6 @@ public interface SpitterRepository {
     Spitter findByUsername(String username);
 
     List<Spitter> findAll();
+
+    void remove(long spitterId);
 }
