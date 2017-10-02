@@ -59,4 +59,9 @@ public class HibernateSpitterRepository implements SpitterRepository {
                 .createCriteria(Spitter.class)
                 .list();
     }
+
+    @Override
+    public void remove(long spitterId) {
+
+    }
 }
