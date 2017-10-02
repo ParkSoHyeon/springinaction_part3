@@ -21,23 +21,29 @@ dependencies {
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
     // https://mvnrepository.com/artifact/commons-io/commons-io
     compile group: 'commons-io', name: 'commons-io', version: '2.4'
-// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
-// https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2
     compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
-// https://mvnrepository.com/artifact/javax.inject/javax.inject
+    // https://mvnrepository.com/artifact/javax.inject/javax.inject
     compile group: 'javax.inject', name: 'javax.inject', version: '1'
-// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+    // https://mvnrepository.com/artifact/org.springframework/spring-jdbc
     compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.11.RELEASE'
-// https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
     compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.11.7.RELEASE'
-// https://mvnrepository.com/artifact/net.sf.ehcache/ehcache
+    // https://mvnrepository.com/artifact/net.sf.ehcache/ehcache
     compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.4'
-// https://mvnrepository.com/artifact/org.springframework/spring-context-support
+    // https://mvnrepository.com/artifact/org.springframework/spring-context-support
     compile group: 'org.springframework', name: 'spring-context-support', version: '4.1.0.RELEASE'
-// https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis
     compile group: 'org.springframework.data', name: 'spring-data-redis', version: '2.0.0.M4'
     // https://mvnrepository.com/artifact/javax.cache/cache-api
     compile group: 'javax.cache', name: 'cache-api', version: '1.0.0'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.2.3.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.2.3.RELEASE'
+// https://mvnrepository.com/artifact/javax.annotation/jsr250-api
+    compile group: 'javax.annotation', name: 'jsr250-api', version: '1.0'
 
 }
