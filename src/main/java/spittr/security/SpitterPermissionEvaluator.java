@@ -19,7 +19,7 @@ public class SpitterPermissionEvaluator implements PermissionEvaluator{
                 return isAdmin(authentication) || username.equals(authentication.getName());
             }
         }
-        throw new UnsupportedOperationException("hasPermission not supported for object <" + targetDomainObject + "> and permission <" + permission + ">")
+        throw new UnsupportedOperationException("hasPermission not supported for object <" + targetDomainObject + "> and permission <" + permission + ">");
     }
 
     @Override
